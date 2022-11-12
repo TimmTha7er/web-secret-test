@@ -11,11 +11,11 @@ const Home = () => {
         />
         <link
           rel="icon"
-          href="/favicon-32x32.png"
+          href="/images/favicons/favicon-32x32.png"
         />
         <link
           rel="icon"
-          href="/favicon-16x16.png"
+          href="/images/favicons/favicon-16x16.png"
         />
       </Head>
 

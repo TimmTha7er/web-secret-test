@@ -1,0 +1,26 @@
+html,
+body {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  color: #1b1b1b;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  text-rendering: optimizelegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Tap highlight for mobile
+  -webkit-tap-highlight-color: #dbdbdb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
