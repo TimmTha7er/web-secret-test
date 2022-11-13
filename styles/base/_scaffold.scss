@@ -1,12 +1,34 @@
 html,
 body {
-  font-family: Montserrat, sans-serif;
-  font-weight: 500;
-  color: #1b1b1b;
+  min-width: 375px;
+
+  font-family: var(--default-font-family);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-default);
+  color: var(--black-800);
+
+  background-color: var(--gray-200);
 }
 
 html {
   box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+input[type='number'] {
+  appearance: textfield;
 }
 
 body {
@@ -16,11 +38,76 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   // Tap highlight for mobile
-  -webkit-tap-highlight-color: #dbdbdb;
+  -webkit-tap-highlight-color: var(--gray-300);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+.container {
+  max-width: $breakpoint-sm;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 calc(var(--spacer) * 1.25);
+
+  background-color: var(--white);
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: 1024px;
+    padding: 0 calc(var(--spacer) * 2);
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    max-width: 1240px;
+    padding: 0 calc(var(--spacer) * 2);
+  }
+
+  @media (min-width: $breakpoint-xxl) {
+    max-width: 1400px;
+    padding: 0 calc(var(--spacer) * 2);
+  }
+}
+
+h1 {
+  margin: calc(var(--spacer) * 1.5) 0;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-140);
+}
+
+h3 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-140);
+}
+
+.text-muted {
+  color: var(--gray-500);
+}
+
+.visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  clip: rect(0 0 0 0);
+  border: 0;
+
+  appearance: none;
+}
+
+.page {
+  padding: calc(var(--spacer) * 1.5) 0;
+
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+    padding: calc(var(--spacer) * 4) 0;
+
+    &__filter {
+      margin-right: calc(var(--spacer) * 2.5);
+    }
+  }
 }

@@ -1,0 +1,33 @@
+@import '../../styles/abstracts/_variables';
+
+.label {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--spacer) * 0.75);
+  left: calc(var(--spacer) * 0.75);
+
+  display: none;
+
+  padding: 6px 10px;
+
+  font-size: var(--font-size-xxs);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-140);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  border-radius: 26px;
+
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}
+
+.success {
+  background: #44c477;
+}
+
+.warning {
+  background: #ffef63;
+}

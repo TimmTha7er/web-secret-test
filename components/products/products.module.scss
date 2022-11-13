@@ -1,0 +1,12 @@
+@import '../../styles/abstracts/_variables';
+
+.products {
+  padding-top: calc(var(--spacer) * 0.5);
+
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacer) * 1.5);
+    padding-top: 0;
+  }
+}

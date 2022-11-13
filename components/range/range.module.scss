@@ -1,0 +1,50 @@
+@import '../../styles/abstracts/_variables';
+
+.title {
+  margin-bottom: calc(var(--spacer) * 0.75);
+
+  @media (min-width: $breakpoint-lg) {
+    margin-top: calc(var(--spacer) * 0.75);
+  }
+}
+
+.fields {
+  overflow: hidden;
+  display: flex;
+
+  max-width: 224px;
+
+  border: 1px solid #dbdbdb;
+  border-radius: var(--border-radius);
+
+  transition: border-color 0.25s linear 0s;
+
+  &:hover {
+    border-color: var(--gray-400);
+  }
+}
+
+.from,
+.to {
+  width: 50%;
+  padding: 10px;
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-140);
+
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: rgb(239 239 239 / 30%);
+  }
+}
+
+/* stylelint-disable-next-line */
+.from {
+  border-right: 1px solid rgb(231 231 231);
+}
