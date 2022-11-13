@@ -18,8 +18,6 @@ const Page = () => {
       )
 
       setData(data)
-
-      console.log('data', data)
     }
 
     fetchData()
