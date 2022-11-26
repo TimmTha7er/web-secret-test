@@ -1,3 +1,7 @@
+@import '../../styles/abstracts/_variables';
+
+$placeholder-size: 100%;
+
 .placeholder {
   position: absolute;
   z-index: -1;
@@ -8,8 +12,8 @@
 
   display: block;
 
-  width: 100%;
-  height: 100%;
+  width: $placeholder-size;
+  height: $placeholder-size;
 
   object-fit: cover;
 }
