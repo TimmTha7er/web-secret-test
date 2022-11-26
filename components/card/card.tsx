@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import { Label } from '@/components/label'
 import LikeImage from '@/icons/like.svg'
 
@@ -13,11 +11,10 @@ const Card = ({ product }) => {
       {is_new && <Label type={'success'}>Новинка</Label>}
 
       <div className={styles.imageWrap}>
-        <Image
+        <img
           className={styles.image}
           src={image.desktop.webp_x2}
           alt="Изображение фотоаппарата"
-          fill
         />
       </div>
       <div className={styles.description}>
