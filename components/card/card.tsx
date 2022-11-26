@@ -1,4 +1,5 @@
 import { Label } from '@/components/label'
+import { Image } from '@/components/image'
 import LikeImage from '@/icons/like.svg'
 
 import styles from './card.module.scss'
@@ -11,10 +12,10 @@ const Card = ({ product }) => {
       {is_new && <Label type={'success'}>Новинка</Label>}
 
       <div className={styles.imageWrap}>
-        <img
+        <Image
+          image={image}
           className={styles.image}
-          src={image.desktop.webp_x2}
-          alt="Изображение фотоаппарата"
+          alt={`фотообъектив ${title}`}
         />
       </div>
       <div className={styles.description}>

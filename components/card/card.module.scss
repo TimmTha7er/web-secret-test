@@ -76,7 +76,7 @@ $card-image-wrap-size: 100%;
   @include inset(0, 0, 0, 0);
 
   display: block;
-  max-width: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
