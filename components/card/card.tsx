@@ -15,6 +15,9 @@ const Card = ({ product }) => {
         <Image
           image={image}
           className={styles.image}
+          placeholderImg={
+            'data:image/gif;base64,R0lGODlhAQABAIABAEdJRgAAACwAAAAAAQABAAACAkQBAA=='
+          }
           alt={`фотообъектив ${title}`}
         />
       </div>
