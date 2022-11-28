@@ -1,6 +1,7 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+
+import { useDebounce } from 'hooks/useDebounce'
 
 import styles from './range.module.scss'
 
@@ -21,24 +22,30 @@ const Range = ({ data }) => {
     }
   }, [])
 
+  const debouncedMin = useDebounce((min) => {
+    router.replace({
+      query: { ...router.query, 'price[min]': min },
+    })
+  }, 500)
+
+  const debouncedMax = useDebounce((max) => {
+    router.replace({
+      query: { ...router.query, 'price[max]': max },
+    })
+  }, 500)
+
   const handleMinChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value
 
     setMin(value)
-
-    router.replace({
-      query: { ...router.query, 'price[min]': value },
-    })
+    debouncedMin(value)
   }
 
   const handleMaxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value
 
     setMax(value)
-
-    router.replace({
-      query: { ...router.query, 'price[max]': value },
-    })
+    debouncedMax(value)
   }
 
   return (
