@@ -11,7 +11,7 @@ const Card = ({ product }) => {
     <div className={styles.card}>
       {is_new && <Label type={'success'}>Новинка</Label>}
 
-      <div className={styles.imageWrap}>
+      <div className={styles.wrap}>
         <Image
           image={image}
           className={styles.image}
