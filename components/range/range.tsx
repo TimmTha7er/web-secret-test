@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-import { useDebounce } from 'hooks/useDebounce'
+import { useDebounce } from '@/hooks/useDebounce'
 
 import styles from './range.module.scss'
 
