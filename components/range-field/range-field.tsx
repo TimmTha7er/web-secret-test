@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
-import { useDebounce } from '@/hooks/useDebounce'
+import { Input } from '@/components/input'
 import { useCustomRouter } from '@/hooks/useCustomRouter'
-import { getOnlyNumbers } from '@/utils/getOnlyNumbers'
 
 import styles from './range-field.module.scss'
 
@@ -18,7 +17,7 @@ const RangeField = ({ defaultValue, queryName }) => {
     }
   }, [])
 
-  const setQuery = (value: string) => {
+  const setQuery = useCallback((value: string) => {
     if (value === '') {
       router.removeQuery(queryName)
 
@@ -26,24 +25,13 @@ const RangeField = ({ defaultValue, queryName }) => {
     }
 
     router.replaceQuery(queryName, value)
-  }
-
-  const debouncedSetQuery = useDebounce(setQuery, 500)
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value
-    const number = getOnlyNumbers(value)
-
-    setValue(number)
-    debouncedSetQuery(number)
-  }
+  }, [])
 
   return (
-    <input
+    <Input
       className={styles.field}
-      type="text"
-      value={value}
-      onChange={handleChange}
+      defaultValue={value}
+      handleChange={setQuery}
     />
   )
 }
