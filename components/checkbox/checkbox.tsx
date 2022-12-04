@@ -1,25 +1,9 @@
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { useQueryToArray } from '@/hooks/useQueryToArray'
+import { useState } from 'react'
 
 import styles from './checkbox.module.scss'
 
-const CheckBox = ({ title, value, handleClick }) => {
-  const [checked, setChecked] = useState(false)
-  const router = useRouter()
-  useQueryToArray('brands[]')
-
-  useEffect(() => {
-    const brandQuery = router.query['brands[]']
-
-    brandQuery.forEach((element) => {
-      if (element === value) {
-        setChecked(true)
-      }
-    })
-
-    return
-  }, [])
+const CheckBox = ({ title, defaultState, handleClick }) => {
+  const [checked, setChecked] = useState<boolean>(defaultState)
 
   const handleChange = () => {
     setChecked((prev) => {

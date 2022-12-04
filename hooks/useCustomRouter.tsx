@@ -3,6 +3,16 @@ import { useRouter } from 'next/router'
 const useCustomRouter = () => {
   const router = useRouter()
 
+  const getQueryArray = (name: string) => {
+    const query = router.query[name]
+
+    if (Array.isArray(query)) {
+      return query
+    }
+
+    return query ? [query] : []
+  }
+
   const removeQuery = (name: string) => {
     delete router.query[name]
 
@@ -11,7 +21,7 @@ const useCustomRouter = () => {
     })
   }
 
-  const replaceQuery = (name: string, value: string) => {
+  const replaceQuery = (name: string, value: string | string[]) => {
     router.replace({
       query: { ...router.query, [name]: value },
     })
@@ -21,7 +31,8 @@ const useCustomRouter = () => {
     ...router,
     removeQuery,
     replaceQuery,
+    getQueryArray,
   }
 }
 
-export { useCustomRouter as useRouter }
+export { useCustomRouter }

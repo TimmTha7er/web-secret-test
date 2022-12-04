@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
 import { useDebounce } from '@/hooks/useDebounce'
-import { useRouter } from '@/hooks/useRouter'
+import { useCustomRouter } from '@/hooks/useCustomRouter'
 import { getOnlyNumbers } from '@/utils/getOnlyNumbers'
 
 import styles from './range-field.module.scss'
 
 const RangeField = ({ defaultValue, queryName }) => {
-  const router = useRouter()
+  const router = useCustomRouter()
   const [value, setValue] = useState<string>(defaultValue)
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const RangeField = ({ defaultValue, queryName }) => {
     }
   }, [])
 
-  const setQuery = (value) => {
+  const setQuery = (value: string) => {
     if (value === '') {
       router.removeQuery(queryName)
 

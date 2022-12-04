@@ -1,28 +1,30 @@
-import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useCustomRouter } from '@/hooks/useCustomRouter'
 import { CheckBox } from '@/components/checkbox'
-import { useQueryToArray } from '@/hooks/useQueryToArray'
 
 import styles from './brands.module.scss'
 
 const Brands = ({ data }) => {
-  const router = useRouter()
-  useQueryToArray('brands[]')
+  const router = useCustomRouter()
+  const brandQuery = router.getQueryArray('brands[]')
 
   const { title, items } = data
+  const [selectedBrands, setSelectedBrands] = useState<string[]>(brandQuery)
+
+  useEffect(() => {
+    const brandQuery = router.getQueryArray('brands[]')
+
+    setSelectedBrands(brandQuery)
+  }, [router.asPath])
 
   const handleBrandClick = (value) => (checked) => {
-    const brandQuery = router.query['brands[]']
+    const brandQuery = router.getQueryArray('brands[]')
 
     const result = checked
       ? brandQuery.filter((element) => element !== value)
       : [...brandQuery, value]
 
-    router.push({
-      query: {
-        ...router.query,
-        'brands[]': result,
-      },
-    })
+    router.replaceQuery('brands[]', result)
   }
 
   return (
@@ -30,11 +32,13 @@ const Brands = ({ data }) => {
       <h3 className={styles.title}>{title}</h3>
 
       {items.map(({ title, value }) => {
+        const defaultState = selectedBrands.includes(value)
+
         return (
           <CheckBox
-            key={value}
+            key={title + value}
             title={title}
-            value={value}
+            defaultState={defaultState}
             handleClick={handleBrandClick(value)}
           />
         )
