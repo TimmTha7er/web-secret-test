@@ -2,7 +2,6 @@ import { Filter } from '@/components/filter'
 import { Products } from '@/components/products'
 import { Head } from '@/components/head'
 import { ProductService } from '@/api/ProductService'
-import { API_URL } from '@/api/config'
 
 const Page = ({ data }) => {
   return (
@@ -22,8 +21,13 @@ const Page = ({ data }) => {
   )
 }
 
-export async function getServerSideProps({ resolvedUrl }) {
-  const data = await ProductService.getProducts(`${API_URL}${resolvedUrl}`)
+export async function getServerSideProps({ res, resolvedUrl }) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
+  const data = await ProductService.getProducts(resolvedUrl)
 
   return {
     props: { data },

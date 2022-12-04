@@ -1,10 +1,14 @@
+import { API_URL } from '@/api/config'
+
 class ProductService {
   static async getProducts(url: string) {
     try {
-      const response = await fetch(url)
+      const response = await fetch(API_URL + url)
 
       if (!response.ok) {
-        throw new Error(`Could not fetch ${url}, received ${response.status}`)
+        throw new Error(
+          `Could not fetch ${API_URL + url}, received ${response.status}`
+        )
       }
 
       const data = await response.json()
