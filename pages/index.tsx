@@ -26,12 +26,7 @@ const Page = ({ data }) => {
   )
 }
 
-export async function getServerSideProps({ res, resolvedUrl }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
-
+export async function getServerSideProps({ resolvedUrl }) {
   const data = await ProductService.getProducts(resolvedUrl)
 
   return {
