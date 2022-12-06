@@ -1,12 +1,17 @@
+import Head from 'next/head'
 import { Filter } from '@/components/filter'
 import { Products } from '@/components/products'
-import { Head } from '@/components/head'
+import { Meta } from '@/components/meta'
 import { ProductService } from '@/api/ProductService'
 
 const Page = ({ data }) => {
   return (
     <>
-      <Head />
+      <Meta
+        title={'Фильтр'}
+        description="Тестовое задание от web secret"
+      />
+
       <div className="container">
         <div className="page">
           {data && (
