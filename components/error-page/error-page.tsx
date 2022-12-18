@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { Meta } from '@/components/meta'
 
 import styles from './error-page.module.scss'
+import { Button } from '../button'
 
 const ErrorPage = ({ code, title }) => {
   const router = useRouter()
@@ -23,12 +24,13 @@ const ErrorPage = ({ code, title }) => {
             <span>Попробуйте перезагрузить страницу или </span>
             <Link href={'/'}>вернитесь на главную</Link>.
           </div>
-          <button
-            className={styles.button}
+          <Button
+            variant={'primary'}
+            size="lg"
             onClick={handleButtonClick}
           >
             Перезагрузить
-          </button>
+          </Button>
         </div>
       </div>
     </>

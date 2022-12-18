@@ -3,6 +3,7 @@ import { Image } from '@/components/image'
 import LikeImage from '@/icons/like.svg'
 
 import styles from './card.module.scss'
+import { Button } from '../button'
 
 const Card = ({ product }) => {
   const { title, price, is_new, is_second_hand, image } = product
@@ -28,10 +29,14 @@ const Card = ({ product }) => {
           {!is_second_hand && <div className={styles.state}>Новый</div>}
         </div>
         <div className={styles.row}>
-          <button className={styles.add}>В корзину</button>
-          <button className={styles.like}>
+          <Button variant={'outline-float'}>В корзину</Button>
+          <Button
+            size="icon"
+            variant={'icon'}
+            className={styles.like}
+          >
             <LikeImage />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

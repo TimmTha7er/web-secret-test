@@ -135,37 +135,9 @@ $card-image-size: 100%;
   font-size: var(--font-size-xs);
 }
 
-// TODO: create button component
-.add {
-  cursor: pointer;
-
-  padding: 8px 14px 10px;
-
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-140);
-
-  background-color: transparent;
-  border: 1px solid var(--gray-300);
-  border-radius: var(--border-radius-sm);
-
-  transition: border-color 0.25s linear 0s;
-
-  &:hover {
-    border-color: var(--gray-400);
-  }
-}
-
 .like {
-  cursor: pointer;
-
   position: relative;
-  top: 6px;
-
-  padding: 0;
-
-  background-color: transparent;
-  border: 0;
-
+  top: calc(var(--spacer) * 0.375);
   transition: fill 0.2s ease 0s, stroke 0.2s ease 0s;
 
   &:hover > svg {

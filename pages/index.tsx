@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { Filter } from '@/components/filter'
 import { Products } from '@/components/products'
 import { Meta } from '@/components/meta'
