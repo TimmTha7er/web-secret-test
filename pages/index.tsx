@@ -1,9 +1,14 @@
+import { useMemo } from 'react'
+
 import { Filter } from '@/components/filter'
 import { Products } from '@/components/products'
 import { Meta } from '@/components/meta'
 import { ProductService } from '@/api/ProductService'
 
 const Page = ({ data }) => {
+  const filters = useMemo(() => data.filters, [])
+  const products = useMemo(() => data.products, [])
+
   return (
     <>
       <Meta
@@ -13,12 +18,8 @@ const Page = ({ data }) => {
 
       <div className="container">
         <div className="page">
-          {data && (
-            <>
-              <Filter data={data.filters} />
-              <Products data={data.products} />
-            </>
-          )}
+          <Filter data={filters} />
+          <Products data={products} />
         </div>
       </div>
     </>

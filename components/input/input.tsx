@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { memo, useState } from 'react'
 
 import { useDebounce } from '@/hooks/useDebounce'
 
@@ -39,4 +39,6 @@ const Input = ({
   )
 }
 
-export default React.memo(Input)
+const MemoizedInput = memo(Input)
+
+export { MemoizedInput }

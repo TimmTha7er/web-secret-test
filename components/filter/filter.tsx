@@ -1,11 +1,13 @@
+import { memo, useMemo } from 'react'
+
 import { Range } from '@/components/range'
 import { Brands } from '@/components/brands'
 
 import styles from './filter.module.scss'
 
 const Filter = ({ data }) => {
-  const range = data[0]
-  const brands = data[3]
+  const range = useMemo(() => data[0], [])
+  const brands = useMemo(() => data[3], [])
   const count = data[3].items.length
 
   return (
@@ -21,4 +23,6 @@ const Filter = ({ data }) => {
   )
 }
 
-export { Filter }
+const MemoizedFilter = memo(Filter)
+
+export { MemoizedFilter }

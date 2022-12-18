@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { RangeField } from '@/components/range-field'
 
 import styles from './range.module.scss'
@@ -26,4 +28,6 @@ const Range = ({ data }) => {
   )
 }
 
-export { Range }
+const MemoizedRange = memo(Range)
+
+export { MemoizedRange }
