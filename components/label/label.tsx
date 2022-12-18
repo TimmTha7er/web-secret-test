@@ -1,7 +1,16 @@
 import styles from './label.module.scss'
 
-const Label = ({ type, children }) => {
-  return <div className={`${styles.label} ${styles[type]}`}>{children}</div>
+const Label = ({ variant, size, className = '', children }) => {
+  return (
+    <div
+      className={`${styles.label} 
+                  ${styles[variant] || ''} 
+                  ${styles[size] || ''}
+                  ${className}`}
+    >
+      {children}
+    </div>
+  )
 }
 
 export { Label }

@@ -10,7 +10,14 @@ const Card = ({ product }) => {
 
   return (
     <div className={styles.card}>
-      {is_new && <Label type={'success'}>Новинка</Label>}
+      {is_new && (
+        <Label
+          variant={'success'}
+          size={'sm'}
+        >
+          Новинка
+        </Label>
+      )}
 
       <div className={styles.wrap}>
         <Image
