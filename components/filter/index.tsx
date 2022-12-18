@@ -1,3 +1,3 @@
-import { MemoizedFilter as Filter } from './filter'
+import { Filter } from './filter'
 
 export { Filter }

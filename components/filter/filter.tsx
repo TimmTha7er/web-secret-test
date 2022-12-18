@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react'
+import { useMemo } from 'react'
 
 import { Range } from '@/components/range'
 import { Brands } from '@/components/brands'
@@ -23,6 +23,4 @@ const Filter = ({ data }) => {
   )
 }
 
-const MemoizedFilter = memo(Filter)
-
-export { MemoizedFilter }
+export { Filter }

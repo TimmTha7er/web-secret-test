@@ -1,3 +1,3 @@
-import { MemoizedProducts as Products } from './products'
+import { Products } from './products'
 
 export { Products }

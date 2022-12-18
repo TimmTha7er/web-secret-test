@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import { Card } from '@/components/card'
 import { ProductsPlaceholder } from '@/components/products-placeholder'
 import { CardLoader } from '../card/card-loader'
@@ -33,6 +31,4 @@ const Products = ({ data }) => {
   )
 }
 
-const MemoizedProducts = memo(Products)
-
-export { MemoizedProducts }
+export { Products }
