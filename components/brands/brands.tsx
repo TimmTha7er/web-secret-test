@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react'
-import { useCustomRouter } from '@/hooks/useCustomRouter'
+import { memo, useEffect, useState } from 'react'
+
 import { CheckBox } from '@/components/checkbox'
+import { useCustomRouter } from '@/hooks/useCustomRouter'
+import { useLoader } from '@/hooks/useLoader'
 
 import styles from './brands.module.scss'
 
 const Brands = ({ data }) => {
+  const loading = useLoader()
   const router = useCustomRouter()
   const brandQuery = router.getQueryArray('brands[]')
 
@@ -40,6 +43,7 @@ const Brands = ({ data }) => {
             title={title}
             defaultState={defaultState}
             handleClick={handleBrandClick(value)}
+            disabled={loading}
           />
         )
       })}
@@ -47,4 +51,6 @@ const Brands = ({ data }) => {
   )
 }
 
-export { Brands }
+const MemoizedBrands = memo(Brands)
+
+export { MemoizedBrands }

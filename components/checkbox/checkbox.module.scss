@@ -26,6 +26,11 @@ $box-size: 18px;
   transition: border-color 0.25s linear 0s;
 }
 
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
 .input {
   // Hover
   &:hover + .box {
@@ -48,12 +53,14 @@ $box-size: 18px;
 
   // Disabled
   &:disabled + .box {
-    border: 1px solid var(--gray-700);
+    cursor: not-allowed;
+    border: 1px solid var(--gray-200);
   }
 
   // Checked + Disabled
   &:checked:disabled + .box {
-    background-color: var(--gray-700);
+    cursor: not-allowed;
+    background-color: var(--gray-200);
     border: 0;
   }
 }

@@ -2,7 +2,14 @@ import { useState } from 'react'
 
 import styles from './checkbox.module.scss'
 
-const CheckBox = ({ title, defaultState, handleClick }) => {
+const CheckBox = ({
+  title,
+  defaultState,
+  handleClick,
+  disabled = false,
+  className = '',
+  ...props
+}) => {
   const [checked, setChecked] = useState<boolean>(defaultState)
 
   const handleChange = () => {
@@ -14,12 +21,18 @@ const CheckBox = ({ title, defaultState, handleClick }) => {
   }
 
   return (
-    <label className={`${styles.check} ${styles.option}`}>
+    <label
+      className={`${styles.check} 
+                  ${styles.option} 
+                  ${disabled && styles.disabled} 
+                  ${className}`}
+    >
       <input
         className={`${styles.input} visually-hidden`}
         type="checkbox"
         checked={checked}
         onChange={handleChange}
+        {...props}
       />
       <span className={styles.box}></span>
       {title}
