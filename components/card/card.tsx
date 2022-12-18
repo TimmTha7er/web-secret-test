@@ -1,10 +1,11 @@
 import { Label } from '@/components/label'
 import { Image } from '@/components/image'
+import { Button } from '@/components/button'
+
 import LikeImage from '@/icons/like.svg'
 import CameraImage from '@/icons/camera.svg?url'
 
 import styles from './card.module.scss'
-import { Button } from '../button'
 
 const Card = ({ product }) => {
   const { title, price, is_new, is_second_hand, image } = product

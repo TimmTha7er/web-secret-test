@@ -1,9 +1,16 @@
+import { memo } from 'react'
+
 import { Card } from '@/components/card'
 import { ProductsPlaceholder } from '@/components/products-placeholder'
+import { CardLoader } from '../card/card-loader'
+
+import { useLoader } from '@/hooks/useLoader'
 
 import styles from './products.module.scss'
 
-const Products = ({ data = [] }) => {
+const Products = ({ data }) => {
+  const loading = useLoader()
+
   if (data.length === 0) {
     return <ProductsPlaceholder />
   }
@@ -11,6 +18,10 @@ const Products = ({ data = [] }) => {
   return (
     <div className={styles.products}>
       {data.map((product) => {
+        if (loading) {
+          return <CardLoader />
+        }
+
         return (
           <Card
             key={product.id}
@@ -22,4 +33,6 @@ const Products = ({ data = [] }) => {
   )
 }
 
-export { Products }
+const MemoizedProducts = memo(Products)
+
+export { MemoizedProducts }
