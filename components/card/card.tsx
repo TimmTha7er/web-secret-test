@@ -1,6 +1,7 @@
 import { Label } from '@/components/label'
 import { Image } from '@/components/image'
 import LikeImage from '@/icons/like.svg'
+import CameraImage from '@/icons/camera.svg?url'
 
 import styles from './card.module.scss'
 import { Button } from '../button'
@@ -23,9 +24,7 @@ const Card = ({ product }) => {
         <Image
           image={image}
           className={styles.image}
-          placeholderImg={
-            'data:image/gif;base64,R0lGODlhAQABAIABAEdJRgAAACwAAAAAAQABAAACAkQBAA=='
-          }
+          placeholderImg={CameraImage}
           alt={`фотообъектив ${title}`}
         />
       </div>
