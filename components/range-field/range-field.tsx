@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 
 import { Input } from '@/components/input'
 import { useCustomRouter } from '@/hooks/useCustomRouter'
+import { getOnlyNumbers } from '@/utils/getOnlyNumbers'
 
 import styles from './range-field.module.scss'
 
@@ -31,7 +32,10 @@ const RangeField = ({ defaultValue, queryName }) => {
     <Input
       className={styles.field}
       defaultValue={value}
+      inputValidate={getOnlyNumbers}
       handleChange={setQuery}
+      debounceTimeout={500}
+      type="text"
     />
   )
 }
