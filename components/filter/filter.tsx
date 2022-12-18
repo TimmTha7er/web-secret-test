@@ -5,13 +5,13 @@ import { Brands } from '@/components/brands'
 
 import styles from './filter.module.scss'
 
-const Filter = ({ data }) => {
+const Filter = ({ data, className }) => {
   const range = useMemo(() => data[0], [])
   const brands = useMemo(() => data[3], [])
   const count = data[3].items.length
 
   return (
-    <div className={`${styles.filter} page__filter`}>
+    <div className={`${styles.filter} ${className}`}>
       <div className={styles.header}>
         <h1 className={styles.title}>Камеры</h1>
         <div className={`${styles.count} text-muted`}>Товаров {count}</div>
