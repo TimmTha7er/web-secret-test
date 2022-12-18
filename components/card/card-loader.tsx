@@ -10,6 +10,7 @@ const CardLoader = () => {
           width="400"
           height="400"
           className={styles.image}
+          uniqueKey="image"
         />
       </div>
       <div className={styles.description}>
@@ -17,6 +18,7 @@ const CardLoader = () => {
           <Loader
             width="100%"
             height="32"
+            uniqueKey="description"
           />
         </div>
         <div className={styles.row}>
@@ -24,6 +26,7 @@ const CardLoader = () => {
             <Loader
               width="100%"
               height="25"
+              uniqueKey="price"
             />
           </div>
         </div>
@@ -31,6 +34,7 @@ const CardLoader = () => {
           <Loader
             width="100%"
             height="32"
+            uniqueKey="row"
           />
         </div>
       </div>

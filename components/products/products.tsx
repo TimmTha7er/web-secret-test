@@ -17,9 +17,9 @@ const Products = ({ data }) => {
 
   return (
     <div className={styles.products}>
-      {data.map((product) => {
+      {data.map((product, idx) => {
         if (loading) {
-          return <CardLoader />
+          return <CardLoader key={idx} />
         }
 
         return (

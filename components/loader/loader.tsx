@@ -1,3 +1,5 @@
+// https://skeletonreact.com
+
 import ContentLoader from 'react-content-loader'
 
 const Loader = ({ width, height, ...props }) => (
