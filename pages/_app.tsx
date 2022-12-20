@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 
-import { Font } from '@/components/font'
+import { Font } from '@/ui/font'
 
 import '@/styles/app.scss'
 

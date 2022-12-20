@@ -1,0 +1,25 @@
+@import '@/styles/abstracts/breakpoints';
+
+.title {
+  margin-bottom: calc(var(--spacer) * 0.75);
+
+  @media (min-width: $breakpoint-lg) {
+    margin-top: calc(var(--spacer) * 0.75);
+  }
+}
+
+.fields {
+  overflow: hidden;
+  display: flex;
+
+  max-width: 224px;
+
+  border: 1px solid #dbdbdb;
+  border-radius: var(--border-radius);
+
+  transition: border-color 0.25s linear 0s;
+
+  &:hover {
+    border-color: var(--gray-400);
+  }
+}

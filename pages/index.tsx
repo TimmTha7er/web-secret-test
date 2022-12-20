@@ -1,8 +1,9 @@
 import { Lenses } from '@/screens/lenses'
 
-import { ProductService } from '@/api/ProductService'
+import { ProductService } from '@/entities/products/services/ProductService'
 
 const Page = ({ data }) => {
+  // console.log('data', data.data)
   return <Lenses data={data} />
 }
 
