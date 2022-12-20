@@ -7,6 +7,8 @@
       "@/ui/*": ["src/shared/ui/*"],
       "@/hooks/*": ["src/shared/hooks/*"],
       "@/utils/*": ["src/shared/utils/*"],
+      "@/seo/*": ["src/shared/seo/*"],
+      "@/supports/*": ["src/shared/supports/*"],
       "@/types/*": ["src/shared/types/*"],
       "@/styles/*": ["src/shared/styles/*"],
       "@/icons/*": ["public/images/icons/*"],

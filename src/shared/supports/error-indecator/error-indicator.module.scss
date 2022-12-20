@@ -1,0 +1,13 @@
+.indicator {
+  width: 100%;
+  margin: auto;
+  padding: calc(var(--spacer) * 2) 0;
+
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+.icon {
+  max-width: 300px;
+  max-height: 300px;
+}

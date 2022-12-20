@@ -1,6 +1,7 @@
 import { Filter } from '@/entities/filter'
 import { Products } from '@/entities/products'
-import { Meta } from '@/utils/meta'
+import { Meta } from '@/seo/meta'
+import { ErrorBoundary } from '@/supports/error-boundary/error-boundary'
 
 import styles from './lenses.module.scss'
 
@@ -18,7 +19,9 @@ const Lenses = ({ data }) => {
             data={data.filters}
             className={styles.filter}
           />
-          <Products data={data.products} />
+          <ErrorBoundary>
+            <Products data={data.products} />
+          </ErrorBoundary>
         </div>
       </div>
     </>

@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 
 import { Range } from '@/entities/filter/ui/range'
 import { Brands } from '@/entities/filter/ui/brands'
+import { ErrorBoundary } from '@/supports/error-boundary/error-boundary'
 
 import styles from './filter.module.scss'
 
@@ -17,8 +18,12 @@ const Filter = ({ data, className }) => {
         <div className={`${styles.count} text-muted`}>Товаров {count}</div>
       </div>
 
-      <Range data={range} />
-      <Brands data={brands} />
+      <ErrorBoundary>
+        <Range data={range} />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Brands data={brands} />
+      </ErrorBoundary>
     </div>
   )
 }

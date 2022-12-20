@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { Meta } from '@/utils/meta'
+import { Meta } from '@/seo/meta'
 import { Button } from '@/ui/button'
 
 import styles from './error-page.module.scss'
