@@ -31,7 +31,10 @@ const Brands = ({ data }) => {
   }
 
   return (
-    <div className={styles.brands}>
+    <div
+      className={styles.brands}
+      aria-label="Фильтр по бренду"
+    >
       <h3 className={styles.title}>{title}</h3>
 
       {items.map(({ title, value }) => {
@@ -40,10 +43,11 @@ const Brands = ({ data }) => {
         return (
           <CheckBox
             key={title + value}
-            title={title}
+            label={title}
             defaultState={defaultState}
             handleClick={handleBrandClick(value)}
             disabled={loading}
+            title={`Показать объективы бренда ${title}`}
           />
         )
       })}

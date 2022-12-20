@@ -48,7 +48,13 @@ $box-size: 18px;
 
   // Focused
   &:focus + .box {
-    border: 1px solid #d0d0d0;
+    border: 1px solid var(--gray-350);
+  }
+
+  &.active:focus-visible + .box,
+  &:focus-visible + .box {
+    border: 1px solid var(--gray-600);
+    box-shadow: 0 1px 2px rgb(var(--black-800) / 30%);
   }
 
   // Disabled

@@ -6,7 +6,7 @@ import { getOnlyNumbers } from '@/utils/getOnlyNumbers'
 
 import styles from './range-field.module.scss'
 
-const RangeField = ({ defaultValue, queryName }) => {
+const RangeField = ({ defaultValue, queryName, ...props }) => {
   const router = useCustomRouter()
   const [value, setValue] = useState<string>(defaultValue)
 
@@ -36,6 +36,7 @@ const RangeField = ({ defaultValue, queryName }) => {
       handleChange={setQuery}
       debounceTimeout={500}
       type="text"
+      {...props}
     />
   )
 }

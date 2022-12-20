@@ -3,11 +3,12 @@ import { useState } from 'react'
 import styles from './checkbox.module.scss'
 
 const CheckBox = ({
-  title,
+  label,
   defaultState,
   handleClick,
   disabled = false,
   className = '',
+  title,
   ...props
 }) => {
   const [checked, setChecked] = useState<boolean>(defaultState)
@@ -26,6 +27,9 @@ const CheckBox = ({
                   ${styles.option} 
                   ${disabled && styles.disabled} 
                   ${className}`}
+      title={title}
+      role="checkbox"
+      aria-checked={checked}
     >
       <input
         className={`${styles.input} visually-hidden`}
@@ -35,7 +39,7 @@ const CheckBox = ({
         {...props}
       />
       <span className={styles.box}></span>
-      {title}
+      {label}
     </label>
   )
 }

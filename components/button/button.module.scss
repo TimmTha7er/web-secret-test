@@ -82,6 +82,14 @@ $button-sizes: (
   padding: 0;
   background-color: transparent;
   border: 0;
+
+  &.active:focus-visible,
+  &:focus-visible {
+    margin: calc(var(--spacer) * -0.25) calc(var(--spacer) * -0.25) 0;
+    padding: calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.25) 0;
+    outline: none;
+    box-shadow: 0 1px 2px rgb(var(--black-800) / 30%);
+  }
 }
 
 // outline button variants

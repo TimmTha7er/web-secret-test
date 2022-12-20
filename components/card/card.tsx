@@ -30,19 +30,35 @@ const Card = ({ product }) => {
         />
       </div>
       <div className={styles.description}>
-        <div className={styles.title}>{title}</div>
+        <div
+          className={styles.title}
+          aria-label="Название объектива"
+        >
+          {title}
+        </div>
         <div className={styles.row}>
-          <div className={styles.price}>{price} ₽</div>
+          <div
+            className={styles.price}
+            aria-label="Цена объектива"
+          >
+            {price} ₽
+          </div>
           {!is_second_hand && <div className={styles.state}>Новый</div>}
         </div>
         <div className={styles.row}>
-          <Button variant={'outline-float'}>В корзину</Button>
+          <Button
+            variant={'outline-float'}
+            aria-label="Добавить в корзину"
+          >
+            В корзину
+          </Button>
           <Button
             size="icon"
             variant={'icon'}
             className={styles.like}
+            title="Добавить в список желаний"
           >
-            <LikeImage />
+            <LikeImage aria-hidden="true" />
           </Button>
         </div>
       </div>
