@@ -5,7 +5,8 @@ import { ErrorBoundary } from '@/supports/error-boundary/error-boundary'
 
 import styles from './lenses.module.scss'
 
-const Lenses = ({ data }) => {
+const Lenses = ({ data: { filters, products } }) => {
+  console.log('products', products)
   return (
     <>
       <Meta
@@ -16,11 +17,12 @@ const Lenses = ({ data }) => {
       <div className="container">
         <div className={styles.lenses}>
           <Filter
-            data={data.filters}
+            data={filters}
+            count={products.length}
             className={styles.filter}
           />
           <ErrorBoundary>
-            <Products data={data.products} />
+            <Products data={products} />
           </ErrorBoundary>
         </div>
       </div>

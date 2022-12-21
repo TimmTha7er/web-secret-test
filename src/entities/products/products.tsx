@@ -17,12 +17,12 @@ const Products = ({ data }) => {
     <div className={styles.products}>
       {data.map((product, idx) => {
         if (loading) {
-          return <CardLoader key={idx} />
+          return <CardLoader key={`${product.id}-${idx}`} />
         }
 
         return (
           <Card
-            key={product.id}
+            key={`${product.id}-${idx}`}
             product={product}
           />
         )

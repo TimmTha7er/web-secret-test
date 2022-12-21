@@ -4,12 +4,7 @@ import { RangeField } from '@/entities/filter/ui/range-field'
 
 import styles from './range.module.scss'
 
-const Range = ({ data }) => {
-  const { min, max, title } = data
-
-  const defaultMin = min.replace('.00', '')
-  const defaultMax = max.replace('.00', '')
-
+const Range = ({ data: { min, max, title } }) => {
   return (
     <div
       className={styles.range}
@@ -20,12 +15,12 @@ const Range = ({ data }) => {
 
       <div className={styles.fields}>
         <RangeField
-          defaultValue={defaultMin}
+          defaultValue={min}
           queryName={'price[min]'}
           title="Задать минимальную стоимость"
         />
         <RangeField
-          defaultValue={defaultMax}
+          defaultValue={max}
           queryName={'price[max]'}
           title="Задать максимальная стоимость"
         />

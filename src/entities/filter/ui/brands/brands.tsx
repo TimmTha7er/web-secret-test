@@ -6,12 +6,11 @@ import { useLoader } from '@/hooks/useLoader'
 
 import styles from './brands.module.scss'
 
-const Brands = ({ data }) => {
+const Brands = ({ data: { title, items } }) => {
   const loading = useLoader()
   const router = useCustomRouter()
   const brandQuery = router.getQueryArray('brands[]')
 
-  const { title, items } = data
   const [selectedBrands, setSelectedBrands] = useState<string[]>(brandQuery)
 
   useEffect(() => {

@@ -12,7 +12,7 @@ const Image = ({ image, placeholderImg, ...restProps }) => {
           <source
             type="image/webp"
             media={`(min-width: ${Breakpoints.lg}px)`}
-            srcSet={`${image.desktop.webp_x1}, ${image.desktop.webp_x2} 2x`}
+            srcSet={`${image.desktop.webpX1}, ${image.desktop.webpX2} 2x`}
           />
           <source
             media={`(min-width: ${Breakpoints.lg}px)`}
@@ -21,7 +21,7 @@ const Image = ({ image, placeholderImg, ...restProps }) => {
           <source
             type="image/webp"
             media={`(min-width: ${Breakpoints.md}px)`}
-            srcSet={`${image.tablet.webp_x1}, ${image.tablet.webp_x2} 2x`}
+            srcSet={`${image.tablet.webpX1}, ${image.tablet.webpX2} 2x`}
           />
           <source
             media={`(min-width: ${Breakpoints.md}px)`}
@@ -30,7 +30,7 @@ const Image = ({ image, placeholderImg, ...restProps }) => {
           <source
             type="image/webp"
             media={`(max-width: ${Breakpoints.sm}px)`}
-            srcSet={`${image.mobile.webp_x1}, ${image.mobile.webp_x2} 2x`}
+            srcSet={`${image.mobile.webpX1}, ${image.mobile.webpX2} 2x`}
           />
           <source
             media={`(max-width: ${Breakpoints.sm}px)`}

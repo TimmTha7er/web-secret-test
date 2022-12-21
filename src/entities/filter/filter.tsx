@@ -6,10 +6,9 @@ import { ErrorBoundary } from '@/supports/error-boundary/error-boundary'
 
 import styles from './filter.module.scss'
 
-const Filter = ({ data, className }) => {
-  const range = useMemo(() => data[0], [])
-  const brands = useMemo(() => data[3], [])
-  const count = data[3].items.length
+const Filter = ({ data, count, className }) => {
+  const range = useMemo(() => data.range, [])
+  const brands = useMemo(() => data.brands, [])
 
   return (
     <div className={`${styles.filter} ${className}`}>

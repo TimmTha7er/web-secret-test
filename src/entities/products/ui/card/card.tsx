@@ -8,11 +8,11 @@ import CameraImage from '@/icons/camera.svg?url'
 import styles from './card.module.scss'
 
 const Card = ({ product }) => {
-  const { title, price, is_new, is_second_hand, image } = product
+  const { title, price, isNew, isSecondHand, image } = product
 
   return (
     <div className={styles.card}>
-      {is_new && (
+      {isNew && (
         <Label
           variant={'success'}
           size={'sm'}
@@ -43,7 +43,7 @@ const Card = ({ product }) => {
           >
             {price} ₽
           </div>
-          {!is_second_hand && <div className={styles.state}>Новый</div>}
+          {!isSecondHand && <div className={styles.state}>Новый</div>}
         </div>
         <div className={styles.row}>
           <Button
