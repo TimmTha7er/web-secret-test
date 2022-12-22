@@ -1,17 +1,22 @@
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { CheckBox } from '@/ui/checkbox'
 import { useCustomRouter } from '@/hooks/useCustomRouter'
 import { useLoader } from '@/hooks/useLoader'
 
+import { useAppSelector } from '@/store/hooks'
+
 import styles from './brands.module.scss'
 
-const Brands = ({ data: { title, items } }) => {
+const Brands = () => {
   const loading = useLoader()
   const router = useCustomRouter()
   const brandQuery = router.getQueryArray('brands[]')
 
   const [selectedBrands, setSelectedBrands] = useState<string[]>(brandQuery)
+  const { title, items } = useAppSelector(
+    (state) => state.products.data.filters.brands
+  )
 
   useEffect(() => {
     const brandQuery = router.getQueryArray('brands[]')
@@ -54,6 +59,4 @@ const Brands = ({ data: { title, items } }) => {
   )
 }
 
-const MemoizedBrands = memo(Brands)
-
-export { MemoizedBrands }
+export { Brands }

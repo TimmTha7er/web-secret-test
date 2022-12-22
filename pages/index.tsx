@@ -1,17 +1,21 @@
 import { Lenses } from '@/screens/lenses'
 
-import { ProductService } from '@/entities/products/services/ProductService'
+import { wrapper } from '@/store/index'
+import { fetchData } from '@/store/products/products.action'
 
-const Page = ({ data }) => {
-  return <Lenses data={data} />
+const Page = () => {
+  return <Lenses />
 }
 
-export async function getServerSideProps({ resolvedUrl }) {
-  const data = await ProductService.getProducts(resolvedUrl)
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ resolvedUrl }) => {
+      await store.dispatch(fetchData(resolvedUrl))
 
-  return {
-    props: { data },
-  }
-}
+      return {
+        props: {},
+      }
+    }
+)
 
 export default Page

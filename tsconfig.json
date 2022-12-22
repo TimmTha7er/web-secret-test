@@ -13,6 +13,7 @@
       "@/styles/*": ["src/shared/styles/*"],
       "@/icons/*": ["public/images/icons/*"],
       "@/images/*": ["public/images/*"],
+      "@/store/*": ["src/shared/store/*"],
       "@/api/*": ["api/*"]
     },
     "target": "es5",

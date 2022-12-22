@@ -1,10 +1,13 @@
-import { memo } from 'react'
-
 import { RangeField } from '@/entities/filter/ui/range-field'
+import { useAppSelector } from '@/store/hooks'
 
 import styles from './range.module.scss'
 
-const Range = ({ data: { min, max, title } }) => {
+const Range = () => {
+  const { min, max, title } = useAppSelector(
+    (state) => state.products.data.filters.range
+  )
+
   return (
     <div
       className={styles.range}
@@ -29,6 +32,4 @@ const Range = ({ data: { min, max, title } }) => {
   )
 }
 
-const MemoizedRange = memo(Range)
-
-export { MemoizedRange }
+export { Range }

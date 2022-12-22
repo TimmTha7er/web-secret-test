@@ -1,3 +1,3 @@
-import { MemoizedRange as Range } from './range'
+import { Range as Range } from './range'
 
 export { Range }
