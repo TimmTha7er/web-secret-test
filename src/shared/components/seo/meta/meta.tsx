@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import logoImage from '@/images/icons/logo.svg?url'
+const logoImage = require('@/images/icons/logo.svg?url') as string
 
 export interface Seo {
   title: string

@@ -25,6 +25,8 @@ const Brands: FC<BrandsProps> = ({ ...props }) => {
     const brandQuery = router.getQueryArray('brands[]')
 
     setSelectedBrands(brandQuery)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath])
 
   const handleBrandClick = (value: string) => (checked: boolean) => {

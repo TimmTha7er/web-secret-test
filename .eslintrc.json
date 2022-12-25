@@ -28,6 +28,7 @@
     "prettier"
   ],
   "rules": {
+    "@typescript-eslint/no-var-requires": "off",
     "@next/next/no-img-element": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
@@ -61,7 +62,9 @@
     "max-len": [
       "error",
       {
-        "ignoreComments": true
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true
       }
     ],
     "indent": [
