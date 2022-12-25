@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import localFont from '@next/font/local'
 
 const addFont = localFont({
@@ -28,7 +29,7 @@ const addFont = localFont({
   variable: '--font-inter',
 })
 
-const Font = () => {
+const Font: FC = () => {
   return (
     <style
       jsx

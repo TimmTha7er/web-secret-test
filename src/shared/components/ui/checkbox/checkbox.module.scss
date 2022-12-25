@@ -54,7 +54,7 @@ $box-size: 18px;
   &.active:focus-visible + .box,
   &:focus-visible + .box {
     border: 1px solid var(--gray-600);
-    box-shadow: 0 1px 2px rgb(var(--black-800) / 30%);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
   }
 
   // Disabled

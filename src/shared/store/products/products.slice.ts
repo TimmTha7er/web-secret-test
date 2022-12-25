@@ -1,17 +1,39 @@
 import { createAction, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { HYDRATE } from 'next-redux-wrapper'
+
 import { AppState } from '..'
 import { fetchData } from './products.action'
 
+import { Brands, Product, Range } from '@/types/global'
+
 interface ProductsState {
-  data: []
+  data: {
+    filters: {
+      range: Range
+      brands: Brands
+    }
+    products: Product[]
+  }
   isLoading: boolean
   error: string
 }
 
 const initialState: ProductsState = {
-  data: [],
+  data: {
+    filters: {
+      range: {
+        min: '',
+        max: '',
+        title: '',
+      },
+      brands: {
+        title: '',
+        items: [],
+      },
+    },
+    products: [],
+  },
   isLoading: true,
   error: '',
 }
@@ -23,7 +45,7 @@ const productsSlice = createSlice({
   extraReducers: (builder) => {
     const hydrate = createAction<AppState>(HYDRATE)
 
-    builder.addCase(hydrate, (state, action) => {
+    builder.addCase(hydrate, (state: ProductsState, action) => {
       return {
         ...state,
         ...action.payload[productsSlice.name],
@@ -32,25 +54,25 @@ const productsSlice = createSlice({
 
     builder.addCase(
       fetchData.fulfilled.type,
-      (state, action: PayloadAction<any>) => {
+      (state: ProductsState, action: PayloadAction<ProductsState['data']>) => {
         state.isLoading = false
         state.error = ''
         state.data = action.payload
       }
     )
 
-    builder.addCase(fetchData.pending.type, (state) => {
+    builder.addCase(fetchData.pending.type, (state: ProductsState) => {
       state.isLoading = true
       state.error = ''
-      state.data = []
+      state.data = initialState.data
     })
 
     builder.addCase(
       fetchData.rejected.type,
-      (state, action: PayloadAction<any>) => {
+      (state: ProductsState, action: PayloadAction<ProductsState['error']>) => {
         state.isLoading = false
         state.error = action.payload
-        state.data = []
+        state.data = initialState.data
       }
     )
   },

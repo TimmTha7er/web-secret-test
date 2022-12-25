@@ -1,12 +1,42 @@
+import { FC, ButtonHTMLAttributes } from 'react'
+
 import styles from './button.module.scss'
 
-const Button = ({ size, variant, children, className = '', ...props }) => {
+enum ButtonSizes {
+  sm = 'sm',
+  lg = 'lg',
+}
+
+enum ButtonVariants {
+  primary = 'primary',
+  secondary = 'secondary',
+  icon = 'icon',
+}
+
+enum ButtonOutlineVariants {
+  float = 'outline-float',
+  primary = 'outline-primary',
+}
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string
+  size?: ButtonSizes
+  variant: ButtonVariants | ButtonOutlineVariants
+}
+
+const Button: FC<ButtonProps> = ({
+  size,
+  variant,
+  children,
+  className = '',
+  ...props
+}) => {
   return (
     <button
       {...props}
       className={`${styles.button} 
-                  ${styles[size] || ''} 
-                  ${styles[variant] || ''} 
+                  ${size ? styles[size] : ''} 
+                  ${styles[variant]} 
                   ${className}`}
     >
       {children}
@@ -14,4 +44,4 @@ const Button = ({ size, variant, children, className = '', ...props }) => {
   )
 }
 
-export { Button }
+export { Button, ButtonSizes, ButtonVariants, ButtonOutlineVariants }

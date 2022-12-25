@@ -1,8 +1,14 @@
-import { useState } from 'react'
+import { FC, InputHTMLAttributes, useState } from 'react'
 
 import styles from './checkbox.module.scss'
 
-const CheckBox = ({
+interface CheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string
+  defaultState: boolean
+  handleClick: (prev: boolean) => void
+}
+
+const CheckBox: FC<CheckBoxProps> = ({
   label,
   defaultState,
   handleClick,
@@ -36,6 +42,7 @@ const CheckBox = ({
         type="checkbox"
         checked={checked}
         onChange={handleChange}
+        disabled={disabled}
         {...props}
       />
       <span className={styles.box}></span>

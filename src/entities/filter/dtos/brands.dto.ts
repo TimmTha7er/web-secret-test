@@ -1,10 +1,12 @@
-class BrandsDTO {
-  title
-  items
+import { Brand, Lenses } from '@/types/global'
 
-  constructor(model) {
+class BrandsDTO {
+  title: Brand['title']
+  items: Brand['value'][]
+
+  constructor(model: Lenses['filters'][3]) {
     this.title = model.title
-    this.items = model.items.map(({ title, value }) => ({
+    this.items = model.items.map(({ title, value }: Brand['value']) => ({
       title,
       value,
     }))

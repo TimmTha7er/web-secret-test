@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  // TODO: set false
   reactStrictMode: false,
   swcMinify: true,
   webpack: (config) => {

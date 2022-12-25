@@ -1,6 +1,6 @@
 @import '@/styles/abstracts/breakpoints';
 
-$label-sizes: (
+$badge-sizes: (
   'sm': (
     'padding': calc(var(--spacer) * 0.375) calc(var(--spacer) * 0.625),
     'font-size': var(--font-size-xxs),
@@ -10,7 +10,7 @@ $label-sizes: (
     'font-size': var(--h4-font-size),
   ),
 );
-$label-variants: (
+$badge-variants: (
   'success': (
     'bg': var(--success),
   ),
@@ -19,7 +19,7 @@ $label-variants: (
   ),
 );
 
-.label {
+.badge {
   position: absolute;
   z-index: 2;
   top: calc(var(--spacer) * 0.75);
@@ -43,13 +43,13 @@ $label-variants: (
   }
 }
 
-@each $name, $styles in $label-variants {
+@each $name, $styles in $badge-variants {
   .#{$name} {
     background: map-get($styles, 'bg');
   }
 }
 
-@each $name, $styles in $label-sizes {
+@each $name, $styles in $badge-sizes {
   .#{$name} {
     padding: map-get($styles, 'padding');
     font-size: map-get($styles, 'font-size');

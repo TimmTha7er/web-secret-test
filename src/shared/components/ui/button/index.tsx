@@ -1,3 +1,8 @@
-import { Button } from './button'
+import {
+  Button,
+  ButtonSizes,
+  ButtonVariants,
+  ButtonOutlineVariants,
+} from './button'
 
-export { Button }
+export { Button, ButtonSizes, ButtonVariants, ButtonOutlineVariants }

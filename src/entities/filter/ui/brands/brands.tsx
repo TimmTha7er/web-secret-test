@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react'
+import { FC, HTMLAttributes, useEffect, useState } from 'react'
 
 import { CheckBox } from '@/ui/checkbox'
 import { useCustomRouter } from '@/hooks/useCustomRouter'
 import { useLoader } from '@/hooks/useLoader'
 
 import { useAppSelector } from '@/store/hooks'
+import { Brand } from '@/types/global'
 
 import styles from './brands.module.scss'
 
-const Brands = () => {
+type BrandsProps = HTMLAttributes<HTMLDivElement>
+
+const Brands: FC<BrandsProps> = ({ ...props }) => {
   const loading = useLoader()
   const router = useCustomRouter()
   const brandQuery = router.getQueryArray('brands[]')
@@ -24,7 +27,7 @@ const Brands = () => {
     setSelectedBrands(brandQuery)
   }, [router.asPath])
 
-  const handleBrandClick = (value) => (checked) => {
+  const handleBrandClick = (value: string) => (checked: boolean) => {
     const brandQuery = router.getQueryArray('brands[]')
 
     const result = checked
@@ -37,11 +40,11 @@ const Brands = () => {
   return (
     <div
       className={styles.brands}
-      aria-label="Фильтр по бренду"
+      {...props}
     >
       <h3 className={styles.title}>{title}</h3>
 
-      {items.map(({ title, value }) => {
+      {items.map(({ title, value }: Brand['value']) => {
         const defaultState = selectedBrands.includes(value)
 
         return (

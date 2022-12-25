@@ -1,24 +1,32 @@
-import { Label } from '@/ui/label'
+import { FC, HTMLAttributes } from 'react'
+
+import { Badge, BadgeSizes, BadgeVariants } from '@/ui/badge'
 import { Image } from '@/ui/image'
-import { Button } from '@/ui/button'
+import { Button, ButtonVariants, ButtonOutlineVariants } from '@/ui/button'
 
 import LikeImage from '@/icons/like.svg'
 import CameraImage from '@/icons/camera.svg?url'
+import { Product } from '@/types/global'
 
 import styles from './card.module.scss'
 
-const Card = ({ product }) => {
+interface ProductProps extends HTMLAttributes<HTMLDivElement> {
+  product: Product
+  className?: string
+}
+
+const Card: FC<ProductProps> = ({ product, className }) => {
   const { title, price, isNew, isSecondHand, image } = product
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${className}`}>
       {isNew && (
-        <Label
-          variant={'success'}
-          size={'sm'}
+        <Badge
+          variant={BadgeVariants.success}
+          size={BadgeSizes.sm}
         >
           Новинка
-        </Label>
+        </Badge>
       )}
 
       <div className={styles.wrap}>
@@ -47,14 +55,13 @@ const Card = ({ product }) => {
         </div>
         <div className={styles.row}>
           <Button
-            variant={'outline-float'}
+            variant={ButtonOutlineVariants.float}
             aria-label="Добавить в корзину"
           >
             В корзину
           </Button>
           <Button
-            size="icon"
-            variant={'icon'}
+            variant={ButtonVariants.icon}
             className={styles.like}
             title="Добавить в список желаний"
           >

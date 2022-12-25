@@ -1,10 +1,17 @@
+import { FC, HTMLAttributes } from 'react'
+
 import { Loader } from '@/ui/loader'
 
 import styles from './card.module.scss'
 
-const CardLoader = () => {
+type CardLoaderProps = HTMLAttributes<HTMLDivElement>
+
+const CardLoader: FC<CardLoaderProps> = ({ ...props }) => {
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      {...props}
+    >
       <div className={styles.wrap}>
         <Loader
           width="400"

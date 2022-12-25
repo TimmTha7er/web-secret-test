@@ -1,9 +1,13 @@
+import { FC, HTMLAttributes } from 'react'
+
 import { RangeField } from '@/entities/filter/ui/range-field'
 import { useAppSelector } from '@/store/hooks'
 
 import styles from './range.module.scss'
 
-const Range = () => {
+type RangeProps = HTMLAttributes<HTMLDivElement>
+
+const Range: FC<RangeProps> = ({ ...props }) => {
   const { min, max, title } = useAppSelector(
     (state) => state.products.data.filters.range
   )
@@ -12,7 +16,7 @@ const Range = () => {
     <div
       className={styles.range}
       role="range"
-      aria-label="Фильтр по цене"
+      {...props}
     >
       <h3 className={styles.title}>{title}, ₽</h3>
 

@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { ProductService } from '@/entities/products/services/ProductService'
 
-const fetchData = createAsyncThunk<any, any>(
+const fetchData = createAsyncThunk(
   'products/fetchData',
-  async (url, thunkApi) => {
+  async (url: string, thunkApi) => {
     try {
       const data = await ProductService.getProducts(url)
 

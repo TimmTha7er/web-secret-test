@@ -1,8 +1,15 @@
-import { memo, useState } from 'react'
+import { FC, InputHTMLAttributes, useState } from 'react'
 
 import { useDebounce } from '@/hooks/useDebounce'
 
-const Input = ({
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  inputValidate: (value: string) => string
+  handleChange: (value: string) => void
+  debounceTimeout: number
+  defaultValue: string
+}
+
+const Input: FC<InputProps> = ({
   className,
   defaultValue,
   inputValidate,
@@ -39,6 +46,4 @@ const Input = ({
   )
 }
 
-const MemoizedInput = memo(Input)
-
-export { MemoizedInput }
+export { Input }

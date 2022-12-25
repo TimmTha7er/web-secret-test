@@ -1,3 +1,5 @@
+import { FC, HTMLAttributes } from 'react'
+
 import { Card } from '@/entities/products/ui/card'
 import { ProductsPlaceholder } from '@/entities/products/ui/products-placeholder'
 import { CardLoader } from '@/entities/products/ui/card/card-loader'
@@ -7,7 +9,9 @@ import { useAppSelector } from '@/store/hooks'
 
 import styles from './products.module.scss'
 
-const Products = () => {
+type ProductsProps = HTMLAttributes<HTMLDivElement>
+
+const Products: FC<ProductsProps> = ({ ...props }) => {
   const loading = useLoader()
   const products = useAppSelector((state) => state.products.data.products)
 
@@ -16,7 +20,10 @@ const Products = () => {
   }
 
   return (
-    <div className={styles.products}>
+    <div
+      className={styles.products}
+      {...props}
+    >
       {products.map((product, idx) => {
         if (loading) {
           return <CardLoader key={`${product.id}-${idx}`} />

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { FC, ImgHTMLAttributes } from 'react'
 
-import { Breakpoints } from '@/types/global'
+import { Breakpoints, Image } from '@/types/global'
 
 import styles from './image.module.scss'
 
-const Image = ({ image, placeholderImg, ...restProps }) => {
+interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+  image: Image | null
+  placeholderImg: string
+}
+
+const Image: FC<ImageProps> = ({ image, placeholderImg, ...restProps }) => {
   return (
     <>
       {image && (

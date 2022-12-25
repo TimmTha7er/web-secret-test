@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { FC, InputHTMLAttributes } from 'react'
 
 import { Input } from '@/ui/input'
 import { useCustomRouter } from '@/hooks/useCustomRouter'
@@ -6,19 +6,16 @@ import { getOnlyNumbers } from '@/utils/getOnlyNumbers'
 
 import styles from './range-field.module.scss'
 
-const RangeField = ({ defaultValue, queryName, ...props }) => {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  defaultValue: string
+  queryName: string
+}
+
+const RangeField: FC<InputProps> = ({ defaultValue, queryName, ...props }) => {
   const router = useCustomRouter()
-  const [value, setValue] = useState<string>(defaultValue)
+  const value = (router.query[queryName] as string) || defaultValue
 
-  useEffect(() => {
-    const value = router.query[queryName] as string
-
-    if (value) {
-      setValue(value)
-    }
-  }, [])
-
-  const setQuery = useCallback((value: string) => {
+  const setQuery = (value: string) => {
     if (value === '') {
       router.removeQuery(queryName)
 
@@ -26,7 +23,7 @@ const RangeField = ({ defaultValue, queryName, ...props }) => {
     }
 
     router.replaceQuery(queryName, value)
-  }, [])
+  }
 
   return (
     <Input

@@ -1,12 +1,18 @@
+import { FC } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { Meta } from '@/seo/meta'
-import { Button } from '@/ui/button'
+import { Button, ButtonVariants, ButtonSizes } from '@/ui/button'
 
 import styles from './error-page.module.scss'
 
-const ErrorPage = ({ code, title }) => {
+interface ErrorPageProps {
+  code: string
+  title: string
+}
+
+const ErrorPage: FC<ErrorPageProps> = ({ code, title }) => {
   const router = useRouter()
 
   const handleButtonClick = () => {
@@ -26,8 +32,8 @@ const ErrorPage = ({ code, title }) => {
             <Link href={'/'}>вернитесь на главную</Link>.
           </div>
           <Button
-            variant={'primary'}
-            size="lg"
+            variant={ButtonVariants.primary}
+            size={ButtonSizes.lg}
             onClick={handleButtonClick}
           >
             Перезагрузить

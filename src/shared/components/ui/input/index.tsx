@@ -1,3 +1,3 @@
-import { MemoizedInput as Input } from './input'
+import { Input } from './input'
 
 export { Input }
