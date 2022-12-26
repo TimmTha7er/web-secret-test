@@ -2,7 +2,13 @@ import { BrandsDTO } from '@/entities/filter/dtos/brands.dto'
 import { RangeDTO } from '@/entities/filter/dtos/range.dto'
 import { ProductDTO } from '@/entities/products/dtos/product.dto'
 
-import { Brands, Lenses, Product, Range } from '@/types/global'
+import { Data } from '@/types/global'
+import { Brands } from '@/entities/filter/ui/brands/brands.interface'
+import { Range } from '@/entities/filter/ui/range/range.interface'
+import {
+  Product,
+  ProductResponse,
+} from '@/entities/products/ui/card/product.interface'
 
 interface HttpResponse<T> extends Response {
   parsedBody?: T
@@ -27,7 +33,7 @@ class ProductService {
 
   static async getProducts(url: string) {
     try {
-      const response = await this.getResource<Lenses>(url)
+      const response = await this.getResource<Data>(url)
       const data = response.parsedBody
 
       if (!data?.filters || !data?.products) {
@@ -43,7 +49,7 @@ class ProductService {
     }
   }
 
-  private static transformProducts(products: Lenses['products']) {
+  private static transformProducts(products: ProductResponse[]) {
     return products.map((product) => {
       const newProducts: Product = new ProductDTO(product)
 
@@ -51,7 +57,7 @@ class ProductService {
     })
   }
 
-  private static transformFilters(filters: Lenses['filters']) {
+  private static transformFilters(filters: Data['filters']) {
     const range: Range = new RangeDTO(filters[0])
     const brands: Brands = new BrandsDTO(filters[3])
 

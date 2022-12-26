@@ -1,3 +1,7 @@
+import { Brands } from '@/entities/filter/ui/brands/brands.interface'
+import { Range } from '@/entities/filter/ui/range/range.interface'
+import { ProductResponse } from '@/entities/products/ui/card/product.interface'
+
 enum Breakpoints {
   xs = 0,
   sm = 480,
@@ -7,53 +11,10 @@ enum Breakpoints {
   xxl = 1440,
 }
 
-interface DesktopImage {
-  x1: string
-  x2: string
-  webpX1: string
-  webpX2: string
-}
-
-type TabletImage = DesktopImage
-type MobileImage = DesktopImage
-
-interface Image {
-  desktop: DesktopImage
-  tablet: TabletImage
-  mobile: MobileImage
-}
-
-interface Product {
-  title: string
-  price: string
-  isNew: boolean
-  isSecondHand: boolean
-  image: Image | null
-}
-
-interface Brand {
-  title: string
-  value: {
-    title: string
-    value: string
-  }
-}
-
-interface Brands {
-  title: Brand['title']
-  items: Brand['value'][]
-}
-
-interface Range {
-  min: string
-  max: string
-  title: string
-}
-
-interface Lenses {
+interface Data {
   filters: [Range, unknown, unknown, Brands]
-  products: Product[]
+  products: ProductResponse[]
 }
 
 export { Breakpoints }
-export type { Image, Product, Brand, Brands, Range, Lenses }
+export type { Data }

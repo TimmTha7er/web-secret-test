@@ -7,7 +7,7 @@ import { Button, ButtonVariants, ButtonOutlineVariants } from '@/ui/button'
 import LikeImage from '@/icons/like.svg'
 
 const CameraImage = require('@/icons/camera.svg?url') as string
-import { Product } from '@/types/global'
+import { Product } from '@/entities/products/ui/card/product.interface'
 
 import styles from './card.module.scss'
 

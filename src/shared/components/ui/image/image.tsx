@@ -1,11 +1,12 @@
 import React, { FC, ImgHTMLAttributes } from 'react'
 
-import { Breakpoints, Image } from '@/types/global'
+import { Breakpoints } from '@/types/global'
+import { Image as IImage } from '@/ui/image/image.interface'
 
 import styles from './image.module.scss'
 
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  image: Image | null
+  image: IImage | null
   placeholderImg: string
 }
 

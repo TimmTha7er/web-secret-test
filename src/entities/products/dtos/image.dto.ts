@@ -1,9 +1,11 @@
-class ImageDTO {
-  desktop
-  tablet
-  mobile
+import { Image, ImageResponse } from '@/ui/image/image.interface'
 
-  constructor(model) {
+class ImageDTO {
+  desktop: Image['desktop']
+  tablet: Image['tablet']
+  mobile: Image['mobile']
+
+  constructor(model: ImageResponse) {
     this.desktop = {
       x1: model.desktop.x1,
       x2: model.desktop.x2,

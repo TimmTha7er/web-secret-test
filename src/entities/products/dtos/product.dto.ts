@@ -1,13 +1,19 @@
+import {
+  Product,
+  ProductResponse,
+} from '@/entities/products/ui/card/product.interface'
 import { ImageDTO } from './image.dto'
 
 class ProductDTO {
-  title
-  price
-  isNew
-  isSecondHand
-  image
+  id: Product['id']
+  title: Product['title']
+  price: Product['price']
+  isNew: Product['isNew']
+  isSecondHand: Product['isSecondHand']
+  image: Product['image']
 
-  constructor(model) {
+  constructor(model: ProductResponse) {
+    this.id = model.id
     this.title = model.title
     this.price = model.price
     this.isNew = model.is_new

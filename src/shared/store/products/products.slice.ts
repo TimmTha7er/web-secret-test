@@ -5,7 +5,9 @@ import { HYDRATE } from 'next-redux-wrapper'
 import { AppState } from '..'
 import { fetchData } from './products.action'
 
-import { Brands, Product, Range } from '@/types/global'
+import { Brands } from '@/entities/filter/ui/brands/brands.interface'
+import { Range } from '@/entities/filter/ui/range/range.interface'
+import { Product } from '@/entities/products/ui/card/product.interface'
 
 interface ProductsState {
   data: {

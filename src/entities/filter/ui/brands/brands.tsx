@@ -5,7 +5,7 @@ import { useCustomRouter } from '@/hooks/useCustomRouter'
 import { useLoader } from '@/hooks/useLoader'
 
 import { useAppSelector } from '@/store/hooks'
-import { Brand } from '@/types/global'
+import { Brand } from '@/entities/filter/ui/brands/brands.interface'
 
 import styles from './brands.module.scss'
 
